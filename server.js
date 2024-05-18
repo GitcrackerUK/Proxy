@@ -13,14 +13,16 @@ app.use((req, res, next) => {
 
 // Proxy configuration
 app.use('/', createProxyMiddleware({
-  target: 'https://target-server.com', // Replace with the actual target server
+  target: 'https://google.com', // Replace with the actual target server
   changeOrigin: true,
   secure: false,
   onProxyReq: (proxyReq, req, res) => {
-    // Modify the request if needed
+    console.log('\\\\\\\\\\',req);
+    console.log('\\\\\\\\\\',res);
   },
   onProxyRes: (proxyRes, req, res) => {
-    // Modify the response if needed
+    console.log('================',req);
+    console.log('================',res);
   }
 }));
 
